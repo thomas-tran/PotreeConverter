@@ -27,6 +27,9 @@ for FILE in $FILES; do
         --encoding $POTREE_ENCODING \
         --method $POTREE_METHOD \
         $POTREE_EXTRA_OPTIONS
+	
+	echo "Compress output "
+	cd /data/output/$FILENAME && tar -czvf /data/output/$FILENAME.tar.gz * 
 done
 
 echo "Finished converting all files"

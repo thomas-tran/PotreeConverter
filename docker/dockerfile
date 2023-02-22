@@ -9,11 +9,11 @@ LABEL Name="potree-converter ${VERSION}"
 WORKDIR /potreeconverterbuild
 
 # install required libs
-RUN apk add --no-cache git cmake make gcc g++ libtbb-dev
+RUN apk add --no-cache git cmake make gcc g++ libtbb-dev tar
 
 # clone and compile potree converter
 RUN git clone --depth 1 https://github.com/thomas-tran/PotreeConverter /PotreeConverter 
-RUN mkdir -p /data/input /data/output
+RUN mkdir -p /data/input /data/output /data/output/archive
 RUN cmake /PotreeConverter && make
 
 # delete unused stuffs
